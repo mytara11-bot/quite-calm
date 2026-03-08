@@ -1,0 +1,251 @@
+:root {
+  --blush: #f5d9de;
+  --sage: #cfe2cc;
+  --lilac: #ddd2ef;
+  --cloud: #fffdf8;
+  --ink: #374045;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  color: var(--ink);
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(130deg, var(--blush), var(--sage), var(--lilac));
+  background-size: 220% 220%;
+  animation: drift 26s ease-in-out infinite;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -15vmax;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.35), transparent 42%),
+    radial-gradient(circle at 80% 35%, rgba(255, 255, 255, 0.28), transparent 38%),
+    radial-gradient(circle at 60% 80%, rgba(255, 255, 255, 0.2), transparent 42%);
+  animation: floatGlow 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.app-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2.5rem;
+  display: grid;
+  gap: 0.85rem;
+  position: relative;
+  z-index: 2;
+}
+
+.panel {
+  background: rgba(255, 253, 251, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(80, 92, 90, 0.08);
+}
+
+.eyebrow {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 0.72rem;
+  color: #6b7a75;
+}
+
+h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.intro {
+  margin: 0;
+}
+
+.breath-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.breath-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+}
+
+.breath-orb {
+  width: min(44vw, 180px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.25) 35%, transparent 62%),
+    linear-gradient(145deg, rgba(247, 228, 231, 0.92), rgba(214, 231, 211, 0.84), rgba(227, 216, 245, 0.9));
+  box-shadow: 0 14px 36px rgba(102, 112, 110, 0.15), inset 0 0 26px rgba(255, 255, 255, 0.48);
+  transform: scale(0.84);
+  animation: breathe 12s infinite ease-in-out paused;
+}
+
+.breath-orb.running {
+  animation-play-state: running;
+}
+
+.phase {
+  text-align: center;
+  margin: 0;
+  font-weight: 700;
+}
+
+.controls {
+  display: grid;
+  gap: 0.45rem;
+}
+
+label {
+  font-size: 0.95rem;
+}
+
+input[type="range"] {
+  accent-color: #95b89a;
+  width: 100%;
+}
+
+button {
+  width: fit-content;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.58rem 0.95rem;
+  color: #33433d;
+  background: linear-gradient(135deg, #f7e5ea, #d8e7d7, #ddd1ef);
+  box-shadow: 0 5px 16px rgba(85, 99, 95, 0.15);
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(85, 99, 95, 0.22);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.prompt-panel {
+  display: grid;
+  gap: 0.8rem;
+}
+
+#promptText {
+  margin: 0;
+  font-size: 1.04rem;
+}
+
+.install-panel {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.small {
+  margin: 0;
+  font-size: 0.86rem;
+  color: #5e6767;
+}
+
+#petalLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px 999px 0 999px;
+  transform: rotate(25deg);
+  opacity: 0.9;
+  animation: petalFloat 2.8s ease-out forwards;
+}
+
+@keyframes drift {
+  0% {
+    background-position: 0% 50%;
+    filter: saturate(98%);
+  }
+  35% {
+    background-position: 55% 40%;
+    filter: saturate(104%);
+  }
+  70% {
+    background-position: 100% 60%;
+    filter: saturate(96%);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: saturate(100%);
+  }
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.08);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.84);
+    filter: hue-rotate(0deg);
+  }
+  40% {
+    transform: scale(1);
+    filter: hue-rotate(8deg);
+  }
+  60% {
+    transform: scale(1);
+    filter: hue-rotate(8deg);
+  }
+}
+
+@keyframes petalFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(20deg) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--x-shift), -90px, 0) rotate(240deg) scale(0.2);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 760px) {
+  .app-shell {
+    padding-top: 1.8rem;
+  }
+
+  .panel {
+    padding: 1.2rem;
+  }
+}

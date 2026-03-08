@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e8d5e7" />
+    <title>Quiet Resolve</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon-192.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="petalLayer" aria-hidden="true"></div>
+    <main class="app-shell">
+      <section class="panel">
+        <p class="eyebrow">Calm Micro-App</p>
+        <h1>Quiet Resolve</h1>
+        <p class="intro">
+          Touch anywhere to release soft petals. Breathe with the orb and let the colors drift.
+        </p>
+      </section>
+
+      <section class="panel breath-panel">
+        <div class="breath-wrap">
+          <div class="breath-orb" id="breathOrb" aria-hidden="true"></div>
+        </div>
+        <p class="phase" id="phaseText">Press Start to begin</p>
+        <div class="controls">
+          <button id="toggleBreath" type="button">Start</button>
+          <label for="paceRange">Breath Pace: <span id="paceValue">12</span>s</label>
+          <input id="paceRange" type="range" min="8" max="20" value="12" />
+        </div>
+      </section>
+
+      <section class="panel prompt-panel">
+        <p id="promptText">You are allowed to move slowly and still make progress.</p>
+        <button id="newPrompt" type="button">New calming prompt</button>
+      </section>
+
+      <section class="panel install-panel">
+        <button id="installBtn" type="button" hidden>Install app</button>
+        <p class="small">
+          If install is not shown, use your browser menu and choose "Install" or "Add to Home Screen".
+        </p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
