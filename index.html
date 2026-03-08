@@ -40,8 +40,45 @@
       </section>
 
       <section class="panel prompt-panel">
-        <p id="promptText">You are allowed to move slowly and still make progress.</p>
-        <button id="newPrompt" type="button">New calming prompt</button>
+        <p class="section-title">Quiet Resolve Affirmation</p>
+        <p id="affirmationText">
+          I do not need permission to grow. I do not need applause to continue.
+        </p>
+        <button id="newAffirmation" type="button">New affirmation</button>
+      </section>
+
+      <section class="panel form-panel">
+        <p class="section-title">Daily Intention Check-In</p>
+        <label for="dailyImportant">Most important thing for my progress today</label>
+        <textarea id="dailyImportant" rows="2"></textarea>
+        <label for="dailyBoundary">Boundary I need to protect today</label>
+        <textarea id="dailyBoundary" rows="2"></textarea>
+        <label for="dailyCalmChoice">What calm, intentional me will do today</label>
+        <textarea id="dailyCalmChoice" rows="2"></textarea>
+        <button id="saveDaily" type="button">Save daily check-in</button>
+        <p id="dailySaved" class="small"></p>
+      </section>
+
+      <section class="panel form-panel">
+        <p class="section-title">Weekly Progress Log</p>
+        <label for="weeklyWins">Three things I accomplished this week</label>
+        <textarea id="weeklyWins" rows="3"></textarea>
+        <label for="weeklyComposure">One composure moment</label>
+        <textarea id="weeklyComposure" rows="2"></textarea>
+        <label for="weeklyBoundary">One boundary I set or maintained</label>
+        <textarea id="weeklyBoundary" rows="2"></textarea>
+        <label for="weeklyNext">One thing to do differently next week</label>
+        <textarea id="weeklyNext" rows="2"></textarea>
+        <button id="saveWeekly" type="button">Save weekly log</button>
+        <p id="weeklySaved" class="small"></p>
+      </section>
+
+      <section class="panel reset-panel">
+        <p class="section-title">Five-Minute Reset</p>
+        <p id="resetPhase">Ready when you are.</p>
+        <div class="reset-meter" aria-hidden="true"><span id="resetFill"></span></div>
+        <p id="resetCountdown" class="small">5:00</p>
+        <button id="toggleReset" type="button">Start reset</button>
       </section>
 
       <section class="panel install-panel">

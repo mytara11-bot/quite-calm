@@ -1,4 +1,4 @@
-const CACHE_NAME = "quiet-resolve-v1";
+const CACHE_NAME = "quiet-resolve-v2";
 const ASSETS = [
   "./",
   "./index.html",
